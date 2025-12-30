@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How It Works - CataractDetect AI</title>
+  <meta name="description"
+    content="Understand the AI process behind our cataract detection system. From image upload to deep learning analysis." />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            },
+            dark: {
+              bg: '#0f172a',
+              card: '#1e293b',
+              border: '#334155'
+            }
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <link href="static/css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-50 dark:bg-dark-bg text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+
+  <!-- NAVBAR -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- CONTENT -->
+  <main class="pt-32 pb-24 px-4">
+    <div class="max-w-4xl mx-auto">
+
+      <div class="text-center mb-16 animate-fade-in-up">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">How AI Analysis Works</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400">
+          Our system uses advanced computer vision to inspect your eye for opacities associated with cataracts.
+        </p>
+      </div>
+
+      <div
+        class="space-y-12 relative before:absolute before:inset-0 before:ml-8 md:before:ml-[50%] before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-300 before:dark:via-dark-border before:to-transparent">
+
+        <!-- Step 1 -->
+        <div
+          class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up"
+          style="animation-delay: 0.1s;">
+          <div
+            class="flex items-center justify-center w-16 h-16 rounded-full border-4 border-white dark:border-dark-bg bg-primary-100 dark:bg-primary-900/30 text-primary-600 shadow-xl shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+            <span class="material-symbols-outlined text-3xl">upload_file</span>
+          </div>
+          <div
+            class="w-[calc(100%-5rem)] md:w-[calc(50%-3rem)] bg-white dark:bg-dark-card p-8 rounded-3xl border border-gray-100 dark:border-dark-border shadow-lg hover:shadow-xl transition-all">
+            <h3 class="text-xl font-bold mb-2">1. Upload Image</h3>
+            <p class="text-gray-600 dark:text-gray-400">
+              Capture a macro shot of your eye or upload an existing photo. Ensure good lighting and focus on the pupil.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div
+          class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up"
+          style="animation-delay: 0.2s;">
+          <div
+            class="flex items-center justify-center w-16 h-16 rounded-full border-4 border-white dark:border-dark-bg bg-purple-100 dark:bg-purple-900/30 text-purple-600 shadow-xl shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+            <span class="material-symbols-outlined text-3xl">smart_toy</span>
+          </div>
+          <div
+            class="w-[calc(100%-5rem)] md:w-[calc(50%-3rem)] bg-white dark:bg-dark-card p-8 rounded-3xl border border-gray-100 dark:border-dark-border shadow-lg hover:shadow-xl transition-all">
+            <h3 class="text-xl font-bold mb-2">2. Eye & Face Detection</h3>
+            <p class="text-gray-600 dark:text-gray-400">
+              We first detect the face and then crop individual eyes. Even if you upload a full face photo, we'll
+              isolate the eyes for precise analysis.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div
+          class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up"
+          style="animation-delay: 0.3s;">
+          <div
+            class="flex items-center justify-center w-16 h-16 rounded-full border-4 border-white dark:border-dark-bg bg-green-100 dark:bg-green-900/30 text-green-600 shadow-xl shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+            <span class="material-symbols-outlined text-3xl">analytics</span>
+          </div>
+          <div
+            class="w-[calc(100%-5rem)] md:w-[calc(50%-3rem)] bg-white dark:bg-dark-card p-8 rounded-3xl border border-gray-100 dark:border-dark-border shadow-lg hover:shadow-xl transition-all">
+            <h3 class="text-xl font-bold mb-2">3. Deep Learning Analysis</h3>
+            <p class="text-gray-600 dark:text-gray-400">
+              The cropped eye is processed by an ensemble of ResNet50 and VGG16 models trained on thousands of clinical
+              datasets to classify cataract presence.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div
+          class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group animate-fade-in-up"
+          style="animation-delay: 0.4s;">
+          <div
+            class="flex items-center justify-center w-16 h-16 rounded-full border-4 border-white dark:border-dark-bg bg-blue-100 dark:bg-blue-900/30 text-blue-600 shadow-xl shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+            <span class="material-symbols-outlined text-3xl">assignment_turned_in</span>
+          </div>
+          <div
+            class="w-[calc(100%-5rem)] md:w-[calc(50%-3rem)] bg-white dark:bg-dark-card p-8 rounded-3xl border border-gray-100 dark:border-dark-border shadow-lg hover:shadow-xl transition-all">
+            <h3 class="text-xl font-bold mb-2">4. Instant Report</h3>
+            <p class="text-gray-600 dark:text-gray-400">
+              Receive a downloadable PDF report with confidence scores and actionable medical recommendations.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-20 text-center animate-fade-in-up" style="animation-delay: 0.5s;">
+        <a href="upload.html"
+          class="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg hover:-translate-y-1 transition-all">
+          Start Your Scan Now
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer-placeholder"></div>
+
+  <script src="static/js/tailwind-config.js"></script>
+  <script src="static/js/config.js"></script>
+  <script src="static/js/components.js"></script>
+</body>
+
+</html>

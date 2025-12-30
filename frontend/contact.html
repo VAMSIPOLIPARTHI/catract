@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Contact CataractDetect AI | Support & Assistance</title>
+
+  <meta name="description"
+    content="Contact CataractDetect AI for support, feedback, or assistance. Reach out through our contact form or email our team directly." />
+  <meta name="keywords" content="CataractDetect AI, contact, support, cataract detection, AI eye screening" />
+  <meta name="author" content="CataractDetect AI Team" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <link href="static/css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-50 dark:bg-dark-bg text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+
+  <!-- NAVBAR -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-6xl mx-auto px-6 py-24 animate-fade-in-up">
+
+    <h2 class="text-4xl font-bold mb-4">Contact Us</h2>
+    <p class="text-gray-600 dark:text-gray-400 mb-10 text-lg">
+      Have questions, feedback, or need assistance? We’re here to help.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+      <!-- CONTACT FORM -->
+      <section
+        class="bg-white dark:bg-dark-card p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-dark-border">
+        <h3 class="text-2xl font-bold mb-6">Send a Message</h3>
+
+        <form
+          action="https://script.google.com/macros/s/AKfycbwKCVjUGx9zlouIzbmUcLlHHFSFsh8nfH_6HlxWkRAJEaIwd-oYxmb73ogs7Em5YZgS/exec"
+          method="POST" target="hidden_iframe" onsubmit="submitted=true" class="space-y-5">
+
+          <input type="text" name="name" required placeholder="Your Name"
+            class="w-full p-3 bg-gray-50 dark:bg-dark-bg border border-gray-200 dark:border-dark-border rounded-xl focus:ring-2 focus:ring-primary-500 outline-none transition-all" />
+
+          <input type="text" name="mobile" required placeholder="Mobile Number"
+            class="w-full p-3 bg-gray-50 dark:bg-dark-bg border border-gray-200 dark:border-dark-border rounded-xl focus:ring-2 focus:ring-primary-500 outline-none transition-all" />
+
+          <input type="email" name="email" required placeholder="Email Address"
+            class="w-full p-3 bg-gray-50 dark:bg-dark-bg border border-gray-200 dark:border-dark-border rounded-xl focus:ring-2 focus:ring-primary-500 outline-none transition-all" />
+
+          <textarea name="message" rows="4" required placeholder="Your Message"
+            class="w-full p-3 bg-gray-50 dark:bg-dark-bg border border-gray-200 dark:border-dark-border rounded-xl focus:ring-2 focus:ring-primary-500 outline-none transition-all"></textarea>
+
+          <button type="submit"
+            class="w-full bg-primary-600 text-white py-3 rounded-xl font-bold text-lg hover:bg-primary-700 transition shadow-lg shadow-primary-500/30">
+            Send Message
+          </button>
+
+        </form>
+
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+        <p id="successMsg"
+          class="hidden mt-4 text-green-600 dark:text-green-400 font-semibold text-lg flex items-center gap-2">
+          <span class="material-symbols-outlined">check_circle</span> Message sent successfully!
+        </p>
+      </section>
+
+      <!-- CONTACT INFO -->
+      <section class="p-4">
+        <h3 class="text-2xl font-bold mb-6">Get in Touch</h3>
+
+        <div class="space-y-6 text-lg text-gray-700 dark:text-gray-300">
+          <p class="flex items-center gap-3"><span class="material-symbols-outlined text-primary-500">mail</span>
+            <strong>Email:</strong> support@cataractdetect.ai</p>
+          <p class="flex items-center gap-3"><span class="material-symbols-outlined text-primary-500">location_on</span>
+            <strong>Location:</strong> Vizianagaram, Andhra Pradesh, India</p>
+          <p class="flex items-center gap-3"><span class="material-symbols-outlined text-primary-500">schedule</span>
+            <strong>Hours:</strong> Mon – Sat, 9 AM – 6 PM</p>
+        </div>
+
+        <div class="mt-10">
+          <h4 class="font-bold text-lg mb-3">Location Map</h4>
+          <div
+            class="w-full h-64 bg-gray-200 dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl flex items-center justify-center text-gray-500 dark:text-gray-400">
+            Google Map Placeholder
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer-placeholder"></div>
+
+  <script src="static/js/tailwind-config.js"></script>
+  <script src="static/js/config.js"></script>
+  <script src="static/js/components.js"></script>
+  <!-- ✅ SUCCESS HANDLER -->
+  <script>
+    let submitted = false;
+    const iframe = document.querySelector("iframe");
+
+    iframe.onload = () => {
+      if (submitted) {
+        document.getElementById("successMsg").classList.remove("hidden");
+      }
+    };
+  </script>
+
+</body>
+
+</html>

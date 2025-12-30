@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CataractDetect AI - Advanced Eye Health Screening</title>
+  <meta name="description"
+    content="Free, instant, and secure AI-powered cataract screening. Detect early signs of cataracts using state-of-the-art deep learning technology." />
+  <meta name="keywords"
+    content="cataract, eye health, AI diagnosis, ophthalmology, vision test, blindness prevention" />
+  <meta name="author" content="CataractDetect AI Team" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cataractdetect.ai/" />
+  <meta property="og:title" content="CataractDetect AI - Save Your Vision" />
+  <meta property="og:description" content="AI-powered analysis to detect cataracts in seconds." />
+  <meta property="og:image"
+    content="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9', // Sky 500
+              600: '#0284c7', // Sky 600
+              700: '#0369a1',
+            },
+            dark: {
+              bg: '#0f172a',
+              card: '#1e293b',
+              border: '#334155'
+            }
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <link href="static/css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-50 dark:bg-dark-bg text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+
+  <!-- NAVBAR -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- HERO SECTION -->
+  <main class="pt-32 pb-16 lg:pt-48 lg:pb-32 px-4 overflow-hidden relative">
+    <!-- Decor Blobs -->
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary-500/20 rounded-full blur-[100px] -z-10 animate-float">
+    </div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px] -z-10 animate-float"
+      style="animation-delay: 2s;"></div>
+
+    <div class="max-w-7xl mx-auto text-center">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-500/10 text-primary-700 dark:text-primary-300 text-sm font-semibold mb-8 animate-fade-in-up">
+        <span class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-primary-500"></span>
+        </span>
+        AI V2.0 Now Live
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 animate-fade-in-up"
+        style="animation-delay: 0.1s;">
+        Protect Your Vision with <br class="hidden md:block" />
+        <span class="text-gradient">AI Screening</span>
+      </h1>
+
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10 animate-fade-in-up leading-relaxed"
+        style="animation-delay: 0.2s;">
+        Detect early signs of cataracts securely and instantly. Our advanced AI analyzes your eyes to provide a
+        professional risk assessment in seconds.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up"
+        style="animation-delay: 0.3s;">
+        <a href="upload.html"
+          class="w-full sm:w-auto px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-2xl font-bold font-lg shadow-xl hover:shadow-primary-500/40 transition-all hover:scale-105 flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined">upload_file</span>
+          Start Free Analysis
+        </a>
+        <a href="how-it-works.html"
+          class="w-full sm:w-auto px-8 py-4 bg-white dark:bg-dark-card border border-gray-200 dark:border-dark-border text-gray-700 dark:text-gray-200 rounded-2xl font-bold font-lg hover:bg-gray-50 dark:hover:bg-dark-border transition-all flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined">play_circle</span>
+          How It Works
+        </a>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="mt-16 flex items-center justify-center gap-8 text-gray-400 opacity-70 animate-fade-in-up"
+        style="animation-delay: 0.5s;">
+        <div class="flex items-center gap-2"><span class="material-symbols-outlined">verified_user</span> Secure</div>
+        <div class="flex items-center gap-2"><span class="material-symbols-outlined">speed</span> Fast</div>
+        <div class="flex items-center gap-2"><span class="material-symbols-outlined">science</span> Accurate</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FEATURES -->
+  <section class="py-24 bg-white dark:bg-dark-card border-t border-gray-200 dark:border-dark-border">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose Us?</h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          We combine cutting-edge deep learning (ResNet50 & VGG16) with medical expertise to deliver results you can
+          trust as a preliminary screening.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div
+          class="p-8 rounded-3xl bg-gray-50 dark:bg-dark-bg border border-gray-100 dark:border-dark-border hover:shadow-lg transition-all group">
+          <div
+            class="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-primary-600 mb-6 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-3xl">medical_services</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Medical Grade AI</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Trained on thousands of clinical eye images to distinguish between healthy eyes and various stages of
+            cataracts.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div
+          class="p-8 rounded-3xl bg-gray-50 dark:bg-dark-bg border border-gray-100 dark:border-dark-border hover:shadow-lg transition-all group">
+          <div
+            class="w-14 h-14 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center text-green-600 mb-6 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-3xl">lock</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Privacy First</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Your data is minimal and transient. Images are processed in memory and not permanently stored on our
+            servers.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div
+          class="p-8 rounded-3xl bg-gray-50 dark:bg-dark-bg border border-gray-100 dark:border-dark-border hover:shadow-lg transition-all group">
+          <div
+            class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-3xl">download</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Instant Reports</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+            Get a downloadable PDF report with confidence scores and actionable recommendations to show your eye doctor.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 px-4">
+    <div
+      class="max-w-5xl mx-auto bg-primary-600 rounded-[2.5rem] p-12 md:p-20 text-center text-white relative overflow-hidden">
+      <!-- Decor -->
+      <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full blur-3xl -ml-16 -mb-16"></div>
+
+      <h2 class="text-3xl md:text-5xl font-bold mb-6 relative z-10">Ready to Check Your Eyes?</h2>
+      <p class="text-primary-100 text-lg md:text-xl mb-10 max-w-2xl mx-auto relative z-10">
+        It takes less than 30 seconds. No sign-up required.
+      </p>
+      <a href="upload.html"
+        class="inline-flex items-center gap-2 bg-white text-primary-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-2xl relative z-10">
+        <span class="material-symbols-outlined">upload</span>
+        Analyze Now
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script src="static/js/tailwind-config.js"></script>
+  <script src="static/js/config.js"></script>
+  <script src="static/js/components.js"></script>
+</body>
+
+</html>

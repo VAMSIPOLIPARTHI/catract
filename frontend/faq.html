@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ - CataractDetect AI</title>
+  <meta name="description" content="Common questions about our AI accuracy, privacy policy, and medical validity." />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            },
+            dark: {
+              bg: '#0f172a',
+              card: '#1e293b',
+              border: '#334155'
+            }
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <link href="static/css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-50 dark:bg-dark-bg text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+
+  <!-- NAVBAR -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- CONTENT -->
+  <main class="pt-32 pb-24 px-4">
+    <div class="max-w-4xl mx-auto">
+
+      <div class="text-center mb-16 animate-fade-in-up">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Support Center</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400">
+          Find answers to common questions about our AI technology and process.
+        </p>
+      </div>
+
+      <div class="grid gap-6 animate-fade-in-up" style="animation-delay: 0.1s;">
+
+        <!-- Q1 -->
+        <div
+          class="bg-white dark:bg-dark-card p-8 rounded-3xl border border-gray-100 dark:border-dark-border shadow-sm hover:shadow-md transition-shadow">
+          <h3 class="text-xl font-bold flex items-center gap-3 mb-3">
+            <span class="material-symbols-outlined text-primary-500">help</span>
+            What is a cataract?
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed ml-9">
+            A cataract is a clouding of the typically clear lens of your eye. For people who have cataracts, seeing
+            through cloudy lenses is a bit like looking through a frosty or fogged-up window.
+          </p>
+        </div>
+
+        <!-- Q2 -->
+        <div
+          class="bg-white dark:bg-dark-card p-8 rounded-3xl border border-gray-100 dark:border-dark-border shadow-sm hover:shadow-md transition-shadow">
+          <h3 class="text-xl font-bold flex items-center gap-3 mb-3">
+            <span class="material-symbols-outlined text-primary-500">medical_information</span>
+            Does this replace a doctor?
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed ml-9">
+            <strong>Absolutely not.</strong> CataractDetect AI is a preliminary screening tool. It provides a risk
+            assessment based on imagery, but only a qualified ophthalmologist can provide a clinical diagnosis and
+            treatment plan.
+          </p>
+        </div>
+
+        <!-- Q3 -->
+        <div
+          class="bg-white dark:bg-dark-card p-8 rounded-3xl border border-gray-100 dark:border-dark-border shadow-sm hover:shadow-md transition-shadow">
+          <h3 class="text-xl font-bold flex items-center gap-3 mb-3">
+            <span class="material-symbols-outlined text-primary-500">lock</span>
+            Is my data private?
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed ml-9">
+            Yes. We prioritize your privacy. Uploaded images are processed in-memory for the duration of the request and
+            are not permanently stored in any database. The downloadable report is generated on the fly.
+          </p>
+        </div>
+
+        <!-- Q4 -->
+        <div
+          class="bg-white dark:bg-dark-card p-8 rounded-3xl border border-gray-100 dark:border-dark-border shadow-sm hover:shadow-md transition-shadow">
+          <h3 class="text-xl font-bold flex items-center gap-3 mb-3">
+            <span class="material-symbols-outlined text-primary-500">model_training</span>
+            How does the AI work?
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed ml-9">
+            We utilize a technique called Transfer Learning. We have fine-tuned two powerful convolutional neural
+            networks (ResNet50 and VGG16) on a specific dataset of categorized eye images (Normal, Cataract, Glaucoma,
+            etc.) to learn the visual features of cataracts.
+          </p>
+        </div>
+
+        <!-- Q5 -->
+        <div
+          class="bg-white dark:bg-dark-card p-8 rounded-3xl border border-gray-100 dark:border-dark-border shadow-sm hover:shadow-md transition-shadow">
+          <h3 class="text-xl font-bold flex items-center gap-3 mb-3">
+            <span class="material-symbols-outlined text-primary-500">warning</span>
+            Can the AI make mistakes?
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed ml-9">
+            Yes. Like any software, it can produce false positives or false negatives, especially if the image quality
+            is poor, lighting is bad, or there is glare. Always consult a professional for definitive advice.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer-placeholder"></div>
+
+  <script src="static/js/tailwind-config.js"></script>
+  <script src="static/js/config.js"></script>
+  <script src="static/js/components.js"></script>
+</body>
+
+</html>

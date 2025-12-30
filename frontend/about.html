@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - CataractDetect AI</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            },
+            dark: {
+              bg: '#0f172a',
+              card: '#1e293b',
+              border: '#334155'
+            }
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <link href="static/css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-50 dark:bg-dark-bg text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+
+  <!-- NAVBAR -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- CONTENT -->
+  <main class="pt-32 pb-24 px-4">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="text-center mb-16 animate-fade-in-up">
+        <span class="text-primary-600 dark:text-primary-400 font-bold uppercase tracking-wider text-sm">Our
+          Mission</span>
+        <h1 class="text-4xl md:text-5xl font-bold mt-3 mb-6">Democratizing Eye Care</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          CataractDetect AI bridges the gap between technology and ophthalmology, bringing advanced screening
+          capabilities to your pocket.
+        </p>
+      </div>
+
+      <!-- Medical Advisors -->
+      <section class="mb-24 animate-fade-in-up" style="animation-delay: 0.1s;">
+        <h2 class="text-2xl font-bold mb-10 border-l-4 border-primary-500 pl-4">Medical Advisors</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+
+          <div
+            class="bg-white dark:bg-dark-card rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-6 shadow-lg border border-gray-100 dark:border-dark-border hover:shadow-xl transition-all">
+            <div
+              class="w-32 h-32 rounded-full overflow-hidden shrink-0 border-4 border-primary-50 dark:border-primary-900/20">
+              <img src="https://image2url.com/images/1765617666532-e1ff0f67-dca6-4168-978c-9a341670305b.jpg"
+                class="w-full h-full object-cover">
+            </div>
+            <div class="text-center sm:text-left">
+              <h3 class="text-xl font-bold">Dr Harika</h3>
+              <p class="text-primary-600 dark:text-primary-400 font-medium mb-2">Senior Ophthalmologist</p>
+              <p class="text-sm text-gray-500">MIMS, Vizianagaram</p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-dark-card rounded-3xl p-6 flex flex-col sm:flex-row items-center gap-6 shadow-lg border border-gray-100 dark:border-dark-border hover:shadow-xl transition-all">
+            <div
+              class="w-32 h-32 rounded-full overflow-hidden shrink-0 border-4 border-purple-50 dark:border-purple-900/20">
+              <img src="https://image2url.com/images/1765727317079-7f936465-826a-44ad-a4f3-76944e789501.jpg"
+                class="w-full h-full object-cover">
+            </div>
+            <div class="text-center sm:text-left">
+              <h3 class="text-xl font-bold">Dr Hasini</h3>
+              <p class="text-purple-600 dark:text-purple-400 font-medium mb-2">Eye & Retina Specialist</p>
+              <p class="text-sm text-gray-500">GMC, Kothagudem</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Dev Team -->
+      <section class="animate-fade-in-up" style="animation-delay: 0.2s;">
+        <h2 class="text-2xl font-bold mb-10 border-l-4 border-gray-500 pl-4">Engineering Team</h2>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div
+            class="bg-white dark:bg-dark-card p-6 rounded-3xl text-center shadow-md border border-gray-100 dark:border-dark-border hover:-translate-y-2 transition-transform">
+            <div
+              class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 border-2 border-gray-200 dark:border-dark-border">
+              <img src="https://image2url.com/images/1765727675861-0a133f68-42eb-45e1-90e0-836c8a33fff5.jpg"
+                class="w-full h-full object-cover">
+            </div>
+            <h4 class="font-bold">Anusha</h4>
+            <p class="text-xs text-gray-500 mt-1">AI Researcher</p>
+          </div>
+
+          <div
+            class="bg-white dark:bg-dark-card p-6 rounded-3xl text-center shadow-md border border-gray-100 dark:border-dark-border hover:-translate-y-2 transition-transform">
+            <div
+              class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 border-2 border-gray-200 dark:border-dark-border">
+              <img src="https://image2url.com/images/1765730583477-2fae12ca-9450-4ac8-821f-8917c26cfea9.jpg"
+                class="w-full h-full object-cover">
+            </div>
+            <h4 class="font-bold">Sasank</h4>
+            <p class="text-xs text-gray-500 mt-1">Full Stack Lead</p>
+          </div>
+
+          <div
+            class="bg-white dark:bg-dark-card p-6 rounded-3xl text-center shadow-md border border-gray-100 dark:border-dark-border hover:-translate-y-2 transition-transform">
+            <div
+              class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 border-2 border-gray-200 dark:border-dark-border">
+              <img src="https://image2url.com/images/1765731021862-dfc34f21-e4ff-4143-ac5f-292f30640214.jpg"
+                class="w-full h-full object-cover">
+            </div>
+            <h4 class="font-bold">Vamsi</h4>
+            <p class="text-xs text-gray-500 mt-1">ML Engineer</p>
+          </div>
+
+          <div
+            class="bg-white dark:bg-dark-card p-6 rounded-3xl text-center shadow-md border border-gray-100 dark:border-dark-border hover:-translate-y-2 transition-transform">
+            <div
+              class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 border-2 border-gray-200 dark:border-dark-border">
+              <img src="https://image2url.com/images/sample-vinay.jpg" class="w-full h-full object-cover">
+            </div>
+            <h4 class="font-bold">Vinay</h4>
+            <p class="text-xs text-gray-500 mt-1">Backend Dev</p>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer-placeholder"></div>
+
+  <script src="static/js/tailwind-config.js"></script>
+  <script src="static/js/config.js"></script>
+  <script src="static/js/components.js"></script>
+</body>
+
+</html>
