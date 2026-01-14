@@ -1,0 +1,13 @@
+Flask>=2.2
+flask-cors
+flask-sqlalchemy
+psycopg2-binary
+Pillow>=9.0
+reportlab>=4.0
+requests
+huggingface_hub
+torch>=2.0
+torchvision
+supabase
+python-dotenv
+gunicorn
