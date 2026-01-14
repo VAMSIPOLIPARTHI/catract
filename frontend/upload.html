@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Analyze Eye Image - CataractDetect AI</title>
   <meta name="description" content="Upload an eye image or use your camera to detect cataract signs instantly." />
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
+  <!-- Tailwind Config -->
   <script>
     tailwind.config = {
       darkMode: "class",
@@ -38,15 +37,6 @@
               card: '#1e293b',
               border: '#334155'
             }
-          },
-          animation: {
-            'fade-in': 'fadeIn 0.5s ease-out forwards',
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' },
-            }
           }
         }
       }
@@ -56,130 +46,120 @@
   <link href="static/css/styles.css" rel="stylesheet" />
 </head>
 
-<body
-  class="bg-gray-50 dark:bg-dark-bg text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300 flex flex-col min-h-screen">
+<body class="bg-gray-50 dark:bg-dark-bg text-gray-900 dark:text-gray-100 font-sans transition-colors duration-300 flex flex-col min-h-screen">
 
-  <!-- NAVBAR -->
-  <div id="navbar-placeholder"></div>
+<!-- NAVBAR -->
+<div id="navbar-placeholder"></div>
 
-  <!-- MAIN -->
-  <main class="flex-grow pt-32 pb-16 px-4">
-    <div class="max-w-6xl mx-auto">
+<!-- MAIN -->
+<main class="flex-grow pt-32 pb-16 px-4">
+  <div class="max-w-6xl mx-auto">
 
-      <div class="text-center mb-12 animate-fade-in">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Analyze Your Eye</h1>
-        <p class="text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
-          Upload a clear, well-lit photo of the eye. Our AI will scan for cataract indicators in seconds.
-        </p>
+    <!-- HEADER -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Analyze Your Eye</h1>
+      <p class="text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
+        Upload a clear, well-lit photo of the eye. Our AI will scan for cataract indicators in seconds.
+      </p>
+    </div>
+
+    <!-- GRID -->
+    <div class="grid lg:grid-cols-2 gap-8">
+
+      <!-- UPLOAD CARD -->
+      <div class="bg-white dark:bg-dark-card rounded-3xl p-8 border border-gray-200 dark:border-dark-border shadow-xl">
+
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary-600">
+            <span class="material-symbols-outlined">upload_file</span>
+          </div>
+          <h2 class="text-xl font-bold">Upload Image</h2>
+        </div>
+
+        <div onclick="document.getElementById('fileInput').click()"
+          class="relative h-80 border-2 border-dashed border-gray-300 dark:border-dark-border rounded-2xl flex items-center justify-center text-center cursor-pointer hover:border-primary-500 transition">
+
+          <div id="file-upload-placeholder">
+            <span class="material-symbols-outlined text-6xl text-gray-300 dark:text-gray-600 mb-4">cloud_upload</span>
+            <p class="text-sm text-gray-500">Click or drag image here</p>
+          </div>
+
+          <img id="file-preview"
+            class="hidden absolute inset-0 w-full h-full object-contain rounded-2xl bg-black/5 p-2" />
+        </div>
+
+        <input id="fileInput" type="file" accept="image/*" class="hidden" />
+
+        <div class="mt-6 text-right">
+          <button id="browse-file-btn" class="text-sm font-semibold text-primary-600 hover:text-primary-700">
+            Browse Files
+          </button>
+        </div>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-8">
+      <!-- CAMERA CARD -->
+      <div class="bg-white dark:bg-dark-card rounded-3xl p-8 border border-gray-200 dark:border-dark-border shadow-xl">
 
-        <!-- Upload Card -->
-        <div
-          class="bg-white dark:bg-dark-card rounded-3xl p-8 border border-gray-200 dark:border-dark-border shadow-xl hover:shadow-2xl transition-all animate-fade-in duration-500">
-          <div class="flex items-center gap-3 mb-6">
-            <div
-              class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary-600">
-              <span class="material-symbols-outlined">upload_file</span>
-            </div>
-            <h2 class="text-xl font-bold">Upload Image</h2>
-          </div>
-
-          <div
-            class="dropzone h-80 border-2 border-dashed border-gray-300 dark:border-dark-border rounded-2xl flex flex-col items-center justify-center text-center p-6 relative hover:border-primary-500 transition-colors cursor-pointer group"
-            onclick="document.getElementById('fileInput').click()">
-            <!-- Placeholder -->
-            <div id="file-upload-placeholder" class="pointer-events-none group-hover:scale-105 transition-transform">
-              <span
-                class="material-symbols-outlined text-6xl text-gray-300 dark:text-gray-600 mb-4 group-hover:text-primary-500 transition-colors">cloud_upload</span>
-              <p class="text-sm text-gray-500 font-medium">Click to browse or drag image here</p>
-            </div>
-
-            <!-- Preview -->
-            <img id="file-preview"
-              class="hidden absolute inset-0 w-full h-full object-contain rounded-2xl bg-black/5 p-2" />
-          </div>
-
-          <!-- Hidden Input -->
-          <input id="fileInput" type="file" accept="image/*" class="hidden" />
-
-          <div class="mt-6 flex justify-end">
-            <button id="browse-file-btn" class="text-sm font-semibold text-primary-600 hover:text-primary-700">Browse
-              Files</button>
-          </div>
-        </div>
-          <button
-      id="flipCam"
-      type="button"
-      class="flex items-center gap-1 px-4 py-2 text-sm font-semibold rounded-full bg-gray-100 dark:bg-dark-border hover:bg-gray-200 dark:hover:bg-gray-700 transition">
-      <span class="material-symbols-outlined text-base">flip_camera_android</span>
-      Flip
-    </button>
-  </div>
-        <!-- Camera Card -->
-        <div
-          class="bg-white dark:bg-dark-card rounded-3xl p-8 border border-gray-200 dark:border-dark-border shadow-xl hover:shadow-2xl transition-all animate-fade-in duration-500"
-          style="animation-delay: 0.1s;">
-          <div class="flex items-center gap-3 mb-6">
-            <div
-              class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600">
+        <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600">
               <span class="material-symbols-outlined">photo_camera</span>
             </div>
             <h2 class="text-xl font-bold">Use Camera</h2>
           </div>
 
-          <div
-            class="h-80 bg-gray-100 dark:bg-black/40 rounded-2xl overflow-hidden relative border border-gray-200 dark:border-dark-border">
-            <!-- Placeholder -->
-            <div id="camera-placeholder"
-              class="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
-              <span class="material-symbols-outlined text-6xl mb-2">videocam_off</span>
-              <p class="text-sm">Camera inactive</p>
-            </div>
-          
-            <!-- Video -->
-            <video id="camera" autoplay playsinline class="hidden w-full h-full object-cover"></video>
-            <!-- Capture Preview -->
-            <img id="capture-preview" class="hidden w-full h-full object-cover" />
+          <button id="flipCam"
+            class="flex items-center gap-1 px-4 py-2 text-sm rounded-full bg-gray-100 dark:bg-dark-border hover:bg-gray-200 transition">
+            <span class="material-symbols-outlined">flip_camera_android</span>
+            Flip
+          </button>
+        </div>
+
+        <div class="relative h-80 bg-gray-100 dark:bg-black/40 rounded-2xl overflow-hidden border flex items-center justify-center">
+
+          <div id="camera-placeholder" class="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
+            <span class="material-symbols-outlined text-6xl mb-2">videocam_off</span>
+            <p class="text-sm">Camera inactive</p>
           </div>
 
-          <div class="mt-6 flex gap-4">
-            <button id="startCam"
-              class="flex-1 py-3 bg-gray-100 dark:bg-dark-border hover:bg-gray-200 text-gray-700 dark:text-gray-300 rounded-xl font-semibold transition-colors">
-              Start Camera
-            </button>
-            <button id="captureBtn"
-              class="flex-1 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-semibold transition-colors shadow-lg shadow-primary-500/20">
-              Capture
-            </button>
-          </div>
+          <video id="camera" autoplay playsinline class="hidden w-full h-full object-cover"></video>
+          <img id="capture-preview" class="hidden w-full h-full object-cover" />
+        </div>
+
+        <div class="mt-6 grid grid-cols-2 gap-4">
+          <button id="startCam"
+            class="py-3 rounded-xl font-semibold bg-gray-100 dark:bg-dark-border hover:bg-gray-200 transition">
+            Start Camera
+          </button>
+
+          <button id="captureBtn"
+            class="py-3 rounded-xl font-semibold bg-primary-600 hover:bg-primary-700 text-white shadow-lg transition">
+            Capture
+          </button>
         </div>
 
       </div>
-
-      <!-- Analyze Action -->
-      <div class="mt-12 text-center animate-fade-in" style="animation-delay: 0.2s;">
-        <p id="status" class="text-sm text-gray-500 mb-4 h-5"></p>
-        <button id="analyzeBtn" disabled
-          class="px-12 py-4 bg-primary-600 hover:bg-primary-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-lg font-bold rounded-full shadow-2xl hover:scale-105 transition-all flex items-center gap-2 mx-auto">
-          <span class="material-symbols-outlined">analytics</span>
-          Analyze Image
-        </button>
-      </div>
-
     </div>
-  </main>
 
-  <!-- FOOTER -->
-  <div id="footer-placeholder"></div>
+    <!-- ANALYZE -->
+    <div class="mt-12 text-center">
+      <p id="status" class="text-sm text-gray-500 mb-4 h-5"></p>
 
-  <script src="static/js/tailwind-config.js"></script>
-  <script src="static/js/config.js"></script>
-  <script src="static/js/components.js"></script>
-  <script src="static/js/upload.js?v=3"></script>
+      <button id="analyzeBtn" disabled
+        class="px-12 py-4 bg-primary-600 hover:bg-primary-700 disabled:opacity-50 text-white text-lg font-bold rounded-full shadow-xl transition">
+        Analyze Image
+      </button>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>
+
+<script src="static/js/config.js"></script>
+<script src="static/js/components.js"></script>
+<script src="static/js/upload.js?v=3"></script>
+
 </body>
-
-
 </html>
-
