@@ -1,4 +1,6 @@
 // frontend/static/js/result.js
+// FINAL MEDICAL-GRADE VERSION
+// Frontend is DISPLAY ONLY – no medical logic, no thresholds
 
 document.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
@@ -11,23 +13,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultsContainer = document.getElementById("resultsContainer");
     const recommendationsDiv = document.getElementById("recommendations");
 
-    /* --------------------------------------------------
-       Helpers
-    -------------------------------------------------- */
+    /* ==================================================
+       HELPERS
+    ================================================== */
 
     function normalizeLabel(label) {
         if (!label) return "inconclusive";
-        const l = label.toLowerCase();
-        if (l === "normal") return "healthy";
-        if (l === "cataract") return "cataract";
-        return "inconclusive";
+        return label.toLowerCase();
     }
 
-    function makeRecommendation(iconName, title, desc) {
+    function makeRecommendation(icon, title, desc) {
         const div = document.createElement("div");
         div.className = "flex items-start gap-3 mb-4";
         div.innerHTML = `
-            <span class="material-symbols-outlined text-primary mt-1">${iconName}</span>
+            <span class="material-symbols-outlined text-primary mt-1">${icon}</span>
             <div>
                 <h4 class="font-semibold">${title}</h4>
                 <p class="text-sm text-gray-600 dark:text-gray-400">${desc}</p>
@@ -36,9 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return div;
     }
 
-    /* --------------------------------------------------
-       Buttons
-    -------------------------------------------------- */
+    /* ==================================================
+       BUTTON ACTIONS
+    ================================================== */
 
     if (downloadBtn) {
         downloadBtn.addEventListener("click", () => {
@@ -56,16 +55,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    /* --------------------------------------------------
-       Load Report Data
-    -------------------------------------------------- */
+    /* ==================================================
+       LOAD REPORT DATA
+    ================================================== */
 
     function loadFromSession(id) {
         try {
             const raw = sessionStorage.getItem(`report_${id}`);
             return raw ? JSON.parse(raw) : null;
-        } catch (e) {
-            console.warn("Session parse failed", e);
+        } catch {
             return null;
         }
     }
@@ -73,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!reportId) {
         resultsContainer.innerHTML = `
             <div class="text-center p-6 bg-red-50 rounded-xl border border-red-200">
-                <h3 class="text-lg font-bold text-red-700 mb-2">Error</h3>
+                <h3 class="text-lg font-bold text-red-700">Error</h3>
                 <p class="text-red-600">Missing report ID.</p>
             </div>
         `;
@@ -84,98 +82,94 @@ document.addEventListener("DOMContentLoaded", () => {
     const imageDataUrl = meta?.image_dataurl || null;
     const results = meta?.results || [];
 
-    /* --------------------------------------------------
-       Show Image
-    -------------------------------------------------- */
+    /* ==================================================
+       DISPLAY INPUT IMAGE
+    ================================================== */
 
     if (imageDataUrl && userImageDiv) {
         userImageDiv.style.backgroundImage = `url("${imageDataUrl}")`;
         userImageDiv.style.backgroundSize = "contain";
         userImageDiv.style.backgroundRepeat = "no-repeat";
+        userImageDiv.style.backgroundPosition = "center";
     } else if (userImageDiv) {
         userImageDiv.innerHTML = `
             <span class="text-xs text-gray-500 flex justify-center items-center h-full">
-                No Preview
+                No Preview Available
             </span>
         `;
     }
 
-    /* --------------------------------------------------
-       Result Card
-    -------------------------------------------------- */
+    /* ==================================================
+       RESULT CARD (DISPLAY ONLY)
+    ================================================== */
 
     function createResultCard(result) {
         const label = normalizeLabel(result.label);
-        const confidence = result.confidence;
 
-        const isCataract = label === "cataract" && confidence >= 0.85;
-        const isHealthy = label === "healthy" && confidence >= 0.85;
-
-        let colorClass = "text-primary-600 dark:text-primary-400";
-        let bgClass = "bg-primary-50 dark:bg-primary-900/10";
-        let borderClass = "border-primary-100 dark:border-primary-900/20";
         let icon = "help";
         let title = "Inconclusive";
-        let desc = "The AI was unsure. Please retake the image in better lighting.";
+        let desc = "The AI could not make a confident medical decision.";
+        let color = "text-gray-600";
+        let bg = "bg-gray-50";
+        let border = "border-gray-200";
 
-        if (isCataract) {
-            colorClass = "text-red-600 dark:text-red-400";
-            bgClass = "bg-red-50 dark:bg-red-900/10";
-            borderClass = "border-red-100 dark:border-red-900/20";
+        if (label === "cataract") {
             icon = "warning";
             title = "Cataract Detected";
-            desc = "AI detected signs consistent with cataracts in this eye.";
-        } else if (isHealthy) {
-            colorClass = "text-green-600 dark:text-green-400";
-            bgClass = "bg-green-50 dark:bg-green-900/10";
-            borderClass = "border-green-100 dark:border-green-900/20";
+            desc = "Signs consistent with cataract were detected in this eye.";
+            color = "text-red-600";
+            bg = "bg-red-50";
+            border = "border-red-200";
+        } else if (label === "healthy") {
             icon = "check_circle";
             title = "Healthy Eye";
-            desc = "No obvious signs of cataract detected.";
+            desc = "No signs of cataract were detected.";
+            color = "text-green-600";
+            bg = "bg-green-50";
+            border = "border-green-200";
         }
 
         const card = document.createElement("div");
-        card.className = `relative overflow-hidden rounded-3xl border ${borderClass} bg-white dark:bg-dark-card shadow-lg`;
+        card.className = `relative overflow-hidden rounded-3xl border ${border} bg-white shadow-lg`;
 
         card.innerHTML = `
             <div class="flex flex-col sm:flex-row">
-                <div class="w-full sm:w-24 ${bgClass} flex items-center justify-center py-6">
-                    <span class="material-symbols-outlined text-4xl ${colorClass}">
+                <div class="w-full sm:w-24 ${bg} flex items-center justify-center py-6">
+                    <span class="material-symbols-outlined text-4xl ${color}">
                         ${icon}
                     </span>
                 </div>
 
                 <div class="p-6 flex-grow">
-                    <div class="flex justify-between mb-4">
-                        <div>
-                            <span class="text-xs uppercase font-bold ${colorClass}">
-                                ${result.side || "Detected Eye"}
-                            </span>
-                            <h2 class="text-2xl font-bold">${title}</h2>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-3xl font-black ${colorClass}">
-                                ${(confidence * 100).toFixed(1)}%
-                            </div>
-                            <div class="text-xs uppercase text-gray-500">Confidence</div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-400">${desc}</p>
+                    <span class="text-xs uppercase font-bold ${color}">
+                        ${result.side || "Detected Eye"}
+                    </span>
+
+                    <h2 class="text-2xl font-bold">${title}</h2>
+
+                    <p class="text-gray-600 dark:text-gray-400">
+                        ${desc}
+                    </p>
+
+                    <p class="text-sm text-gray-400 mt-2">
+                        Model confidence: ${(result.confidence * 100).toFixed(1)}%
+                    </p>
                 </div>
             </div>
         `;
         return card;
     }
 
-    /* --------------------------------------------------
-       Render Results
-    -------------------------------------------------- */
+    /* ==================================================
+       RENDER RESULTS
+    ================================================== */
 
     resultsContainer.innerHTML = "";
+
     if (!results.length) {
         resultsContainer.innerHTML = `
             <p class="text-center text-gray-500 italic">
-                No results available.
+                No analysis results available.
             </p>
         `;
     } else {
@@ -184,42 +178,54 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    /* --------------------------------------------------
-       Recommendations
-    -------------------------------------------------- */
+    /* ==================================================
+       MEDICAL RECOMMENDATIONS (LABEL-BASED ONLY)
+    ================================================== */
 
     recommendationsDiv.innerHTML = "";
 
-    const hasCataract = results.some(r =>
-        normalizeLabel(r.label) === "cataract" && r.confidence >= 0.85
-    );
-
-    const allHealthy = results.length > 0 && results.every(r =>
-        normalizeLabel(r.label) === "healthy" && r.confidence >= 0.85
-    );
+    const hasCataract = results.some(r => normalizeLabel(r.label) === "cataract");
+    const allHealthy =
+        results.length > 0 &&
+        results.every(r => normalizeLabel(r.label) === "healthy");
 
     if (hasCataract) {
         recommendationsDiv.appendChild(
-            makeRecommendation("health_and_safety", "Consult an Ophthalmologist",
-                "One or more eyes showed cataract signs. Seek professional evaluation.")
+            makeRecommendation(
+                "health_and_safety",
+                "Consult an Ophthalmologist",
+                "One or more eyes show cataract signs. Professional ophthalmic evaluation is recommended."
+            )
         );
         recommendationsDiv.appendChild(
-            makeRecommendation("medical_information", "Bring This Report",
-                "Share this AI report with your doctor.")
+            makeRecommendation(
+                "medical_information",
+                "Bring This Report",
+                "Share this AI screening report with your eye care professional."
+            )
         );
     } else if (allHealthy) {
         recommendationsDiv.appendChild(
-            makeRecommendation("check_circle", "No Cataract Detected",
-                "Your eyes appear healthy. Maintain regular eye checkups.")
+            makeRecommendation(
+                "check_circle",
+                "No Cataract Detected",
+                "Eyes appear healthy. Continue routine eye examinations."
+            )
         );
         recommendationsDiv.appendChild(
-            makeRecommendation("visibility", "Protect Your Vision",
-                "Use UV protection and maintain eye health.")
+            makeRecommendation(
+                "visibility",
+                "Maintain Eye Health",
+                "Protect eyes from UV exposure and maintain a healthy lifestyle."
+            )
         );
     } else {
         recommendationsDiv.appendChild(
-            makeRecommendation("help", "Inconclusive Result",
-                "Retake the image in better lighting or consult a professional.")
+            makeRecommendation(
+                "help",
+                "Inconclusive Result",
+                "Retake the image with better lighting or consult an eye care professional."
+            )
         );
     }
 });
