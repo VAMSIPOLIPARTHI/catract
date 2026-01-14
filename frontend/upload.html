@@ -109,7 +109,14 @@
               Files</button>
           </div>
         </div>
-
+          <button
+      id="flipCam"
+      type="button"
+      class="flex items-center gap-1 px-4 py-2 text-sm font-semibold rounded-full bg-gray-100 dark:bg-dark-border hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+      <span class="material-symbols-outlined text-base">flip_camera_android</span>
+      Flip
+    </button>
+  </div>
         <!-- Camera Card -->
         <div
           class="bg-white dark:bg-dark-card rounded-3xl p-8 border border-gray-200 dark:border-dark-border shadow-xl hover:shadow-2xl transition-all animate-fade-in duration-500"
@@ -130,8 +137,7 @@
               <span class="material-symbols-outlined text-6xl mb-2">videocam_off</span>
               <p class="text-sm">Camera inactive</p>
             </div>
-            <button id="flipCam" type="button">Flip Camera</button>
-
+          
             <!-- Video -->
             <video id="camera" autoplay playsinline class="hidden w-full h-full object-cover"></video>
             <!-- Capture Preview -->
@@ -176,3 +182,4 @@
 
 
 </html>
+
