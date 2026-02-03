@@ -7,4 +7,5 @@ const API_BASE = "https://vamsi1103-cataract-backend.hf.space/";
 const APP_NAME = "CataractDetect AI";
 
 
-https://huggingface.co/spaces/vamsi1103/cataract-backend
+//https://huggingface.co/spaces/vamsi1103/cataract-backend
+
