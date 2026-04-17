@@ -77,7 +77,7 @@ const FOOTER_HTML = `
       </div>
 
       <div class="text-gray-400 text-sm">
-        &copy; 2024 CataractDetect AI.
+        &copy; 2026 CataractDetect AI.
       </div>
 
     </div>
